@@ -28,6 +28,12 @@ const db = new sqlite3.Database('./feedback.db', (err) => {
     }
 });
 
+// Import routes
+const feedbackRoutes = require('./routes/feedback');
+
+// Use routes
+app.use('/api/feedback', feedbackRoutes);
+
 // Basic route
 app.get('/', (req, res) => {
     res.json({ message: 'Student Feedback API is running!' });
